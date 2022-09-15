@@ -45,7 +45,7 @@ A Global theme for Plasma 5 with transparency, blur, rounded edges for window bo
 </p>
 
 * **NOTE:** Installing the global theme package from any one of the above sources will also install all of its required components except the `Utterly Nord Konsole Color Scheme` and `Tela Circle Nord Icons`.
-  * Please install the `Utterly Nord Konsole Color Scheme` from [here](https://store.kde.org/p/1903869)
+  * Please install the `Utterly Nord Konsole Color Scheme` by opening Konsole and going to `Settings > Edit Current Profile... > Appearance > Get New...` and searching for `Utterly Nord`
   * And the `Tela Circle Nord Icons` from [here](https://www.pling.com/p/1359276) (Choose the Nord Variant while installing the Tela Circle Icons)
 
 <h1 id="gallery" align="center">Gallery</h1>
