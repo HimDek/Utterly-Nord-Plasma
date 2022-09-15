@@ -25,7 +25,7 @@ A Global theme for Plasma 5 with transparency, blur, rounded edges for window bo
 ## Key features:
 
 * Rounded edges for all widget elements and window borders
-* MacOS inspired desktop layout with a dock and a top panel that contains window buttons and global menu
+* MacOS inspired desktop layout with a dock and a top panel that contains window buttons, global menu, [NetSpeed Widget](https://store.kde.org/p/998895/) and more
 * [Simple Kickoff](https://github.com/HimDek/Simple-Kickoff-for-Plasma) in top panel and [Better Kicker Dash](https://github.com/HimDek/Better-Kicker-Dash-for-Plasma) in dock
 * [Nord Palette](https://www.nordtheme.com/docs/colors-and-palettes) color scheme, wallpaper and Konsole color scheme
 * Android 12 like Material You clock widget
