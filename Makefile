@@ -7,5 +7,8 @@ colors: UtterlyNord.colors
 wallpaper: wallpaper/*
 	tar -cJf Utterly-Nord-Wallpaper.tar.xz wallpaper/* --transform="s/wallpaper/Utterly-Nord/"
 
+kvantum: kvantum/*
+	tar -caf Utterly-Nord-kvantum.zip kvantum/* --transform="s/kvantum/Utterly-Nord/"
+
 clean:
-	rm *.tar.*
+	rm *.zip & rm *.tar.*

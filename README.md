@@ -24,6 +24,7 @@ A Global theme for Plasma 5 with transparency, blur, rounded edges for window bo
 
 ## Key features:
 
+* Window decoration blends with Window background when appropriate Kvantum theme and Konsole Color Scheme is used
 * Rounded edges for all widget elements and window borders
 * MacOS inspired desktop layout with a dock and a top panel that contains window buttons, global menu, [NetSpeed Widget](https://store.kde.org/p/998895/) and more
 * [Simple Kickoff](https://github.com/HimDek/Simple-Kickoff-for-Plasma) in top panel and [Better Kicker Dash](https://github.com/HimDek/Better-Kicker-Dash-for-Plasma) in dock
@@ -45,17 +46,21 @@ A Global theme for Plasma 5 with transparency, blur, rounded edges for window bo
 </p>
 
 * **NOTE:** Installing the global theme package from any one of the above sources will also install all of its required components except the `Utterly Nord Konsole Color Scheme` and `Tela Circle Nord Icons`.
-  * Please install the `Utterly Nord Konsole Color Scheme` by opening Konsole and going to `Settings > Edit Current Profile... > Appearance > Get New...` and searching for `Utterly Nord`
+  * Please install the `Utterly Nord Konsole Color Scheme` by opening Konsole and going to `Settings > Edit Current Profile... > Appearance > Get New...` and searching for `Utterly Nord`,
+  * The `Utterly Nord Kvantum Theme` by following the instructions [here](https://store.kde.org/p/1905813)
   * And the `Tela Circle Nord Icons` from [here](https://www.pling.com/p/1359276) (Choose the Nord Variant while installing the Tela Circle Icons)
 
 <h1 id="gallery" align="center">Gallery</h1>
 
 <p align="center">
-<img height="400px" src="assets/20220914_192244_fullscreenpreview.png" align="center"/>
+<img height="400px" src="assets/20220916_170516_Screenshot_88.png" align="center"/>
 <br /><br />
-<img height="400px" src="assets/20220914_192334_windowdecorations.png" align="center"/>
+<img height="400px" src="assets/20220916_170550_Screenshot_93.png" align="center"/>
+<br /><br />
+<img height="400px" src="assets/20220916_170544_Screenshot_94.png" align="center"/>
 <br /><br />
 <img height="400px" src="assets/20220914_192233_lockscreen.png" align="center"/>
 <br /><br />
 <img height="400px" src="assets/20220914_192238_splash.png" align="center"/>
+
 </p>
