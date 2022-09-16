@@ -1,5 +1,8 @@
 <p align="center">
- <a href="https://himdek.com/Utterly-Nord-Plasma/"><h1 align="center">Utterly Nord Plasma Global Theme</h1></a>
+ <a href="https://himdek.com/Utterly-Nord-Plasma/">
+ <img height="200px" src="assets/20220916_214556_Utterly-Nord.png" align="center"/>
+ <h1 align="center">Utterly Nord Plasma Global Theme</h1>
+ </a>
  <p align="center">A Nordic Global theme for Plasma 5</p>
 </p>
 
