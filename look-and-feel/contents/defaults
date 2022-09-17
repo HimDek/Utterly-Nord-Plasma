@@ -20,8 +20,8 @@ LayoutName=org.kde.breeze.desktop
 LayoutName=thumbnail_grid
 
 [kwinrc][org.kde.kdecoration2]
-ButtonsOnLeft=
-ButtonsOnRight=IAX
+ButtonsOnLeft=XAI
+ButtonsOnRight=
 library=org.kde.kwin.aurorae
 theme=__aurorae__svg__Utterly-Round
 
