@@ -10,5 +10,8 @@ wallpaper: wallpaper/*
 kvantum: kvantum/*
 	tar -caf Utterly-Nord-kvantum.zip kvantum/* --transform="s/kvantum/Utterly-Nord/"
 
+sddm: sddm/*
+	tar -cJf Utterly-Nord-SDDM.tar.xz sddm/* --transform="s/sddm/Utterly-Nord/"
+
 clean:
 	rm *.zip & rm *.tar.*

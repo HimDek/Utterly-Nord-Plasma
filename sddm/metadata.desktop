@@ -1,0 +1,15 @@
+[SddmGreeterTheme]
+Name=Utterly-Nord
+Description=Utterly-Nord SDDM theme
+Author=Himprakash Deka
+License=GPL-2.0+
+Type=sddm-theme
+Version=1.0
+Website=https://himdek.com/Utterly-Nord-Plasma
+Screenshot=Preview.png
+MainScript=Main.qml
+ConfigFile=theme.conf
+TranslationsDirectory=translations
+Email=himprakashd@gmail.com
+Theme-Id=Utterly-Nord
+Theme-API=2.0
