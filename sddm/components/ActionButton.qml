@@ -1,25 +1,13 @@
 /*
- *   Copyright 2016 David Edmundson <davidedmundson@kde.org>
- *
- *   This program is free software; you can redistribute it and/or modify
- *   it under the terms of the GNU Library General Public License as
- *   published by the Free Software Foundation; either version 2 or
- *   (at your option) any later version.
- *
- *   This program is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details
- *
- *   You should have received a copy of the GNU Library General Public
- *   License along with this program; if not, write to the
- *   Free Software Foundation, Inc.,
- *   51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- */
+    SPDX-FileCopyrightText: 2016 David Edmundson <davidedmundson@kde.org>
 
-import QtQuick 2.8
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+import QtQuick 2.15
+
 import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.plasma.components 2.0 as PlasmaComponents
+import org.kde.plasma.components 3.0 as PlasmaComponents3
 
 Item {
     id: root
@@ -30,38 +18,38 @@ Item {
     property alias labelRendering: label.renderType
     property alias circleOpacity: iconCircle.opacity
     property alias circleVisiblity: iconCircle.visible
-    property int fontSize: config.fontSize
+    property int fontSize: PlasmaCore.Theme.defaultFont.pointSize + 1
     readonly property bool softwareRendering: GraphicsInfo.api === GraphicsInfo.Software
     signal clicked
 
     activeFocusOnTab: true
 
-    property int iconSize: units.gridUnit * 3
+    property int iconSize: PlasmaCore.Units.gridUnit * 3
 
-    implicitWidth: Math.max(iconSize + units.largeSpacing * 2, label.contentWidth)
-    implicitHeight: iconSize + units.smallSpacing + label.implicitHeight
+    implicitWidth: Math.max(iconSize + PlasmaCore.Units.largeSpacing * 2, label.contentWidth)
+    implicitHeight: iconSize + PlasmaCore.Units.smallSpacing + label.implicitHeight
 
     opacity: activeFocus || containsMouse ? 1 : 0.85
-        Behavior on opacity {
-            PropertyAnimation { // OpacityAnimator makes it turn black at random intervals
-                duration: units.longDuration * 2
-                easing.type: Easing.InOutQuad
-            }
+    Behavior on opacity {
+        PropertyAnimation { // OpacityAnimator makes it turn black at random intervals
+            duration: PlasmaCore.Units.longDuration
+            easing.type: Easing.InOutQuad
+        }
     }
 
     Rectangle {
         id: iconCircle
         anchors.centerIn: icon
-        width: iconSize + units.smallSpacing
+        width: iconSize + PlasmaCore.Units.smallSpacing
         height: width
         radius: width / 2
         color: softwareRendering ?  PlasmaCore.ColorScope.backgroundColor : PlasmaCore.ColorScope.textColor
-        opacity: activeFocus || containsMouse ? (softwareRendering ? 0.8 : 0.15) : (softwareRendering ? 0.6 : 0)
+        opacity: root.activeFocus || containsMouse ? (softwareRendering ? 0.8 : 0.15) : (softwareRendering ? 0.6 : 0)
         Behavior on opacity {
-                PropertyAnimation { // OpacityAnimator makes it turn black at random intervals
-                    duration: units.longDuration * 3
-                    easing.type: Easing.InOutQuad
-                }
+            PropertyAnimation { // OpacityAnimator makes it turn black at random intervals
+                duration: PlasmaCore.Units.longDuration
+                easing.type: Easing.InOutQuad
+            }
         }
     }
 
@@ -74,10 +62,10 @@ Item {
         color: PlasmaCore.ColorScope.textColor
         opacity: 0.15
         Behavior on scale {
-                PropertyAnimation {
-                    duration: units.shortDuration
-                    easing.type: Easing.InOutQuart
-                }
+            PropertyAnimation {
+                duration: PlasmaCore.Units.shortDuration
+                easing.type: Easing.InOutQuart
+            }
         }
     }
 
@@ -94,12 +82,12 @@ Item {
         active: mouseArea.containsMouse || root.activeFocus
     }
 
-    PlasmaComponents.Label {
+    PlasmaComponents3.Label {
         id: label
-        font.pointSize: Math.max(fontSize + 1,theme.defaultFont.pointSize + 1)
+        font.pointSize: root.fontSize
         anchors {
             top: icon.bottom
-            topMargin: (softwareRendering ? 1.5 : 1) * units.smallSpacing
+            topMargin: (softwareRendering ? 1.5 : 1) * PlasmaCore.Units.smallSpacing
             left: parent.left
             right: parent.right
         }
