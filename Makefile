@@ -17,7 +17,7 @@ kvantum: kvantum/*
 	tar -caf Utterly-Nord-kvantum.zip kvantum/* --transform="s/kvantum/Utterly-Nord/"
 
 kvantum-light: kvantum-light/*
-	tar -caf Utterly-Nord-Light-kvantum.zip kvantum-light/* --transform="s/kvantum-light/Utterly-Nord/"
+	tar -caf Utterly-Nord-Light-kvantum.zip kvantum-light/* --transform="s/kvantum-light/Utterly-Nord-Light/"
 
 sddm: sddm/*
 	tar -cJf Utterly-Nord-SDDM.tar.xz sddm/* --transform="s/sddm/Utterly-Nord/"
