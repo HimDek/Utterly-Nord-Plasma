@@ -23,7 +23,7 @@ LayoutName=thumbnail_grid
 ButtonsOnLeft=XAI
 ButtonsOnRight=
 library=org.kde.kwin.aurorae
-theme=__aurorae__svg__Utterly-Round
+theme=__aurorae__svg__Utterly-Round-Light
 
 [plasmarc][Theme]
 name=Utterly-Round
