@@ -19,6 +19,12 @@ kvantum: kvantum/*
 kvantum-light: kvantum-light/*
 	tar -caf Utterly-Nord-Light-kvantum.zip kvantum-light/* --transform="s/kvantum-light/Utterly-Nord-Light/"
 
+kvantum-solid: kvantum-solid/*
+	tar -caf Utterly-Nord-Solid-kvantum.zip kvantum-solid/* --transform="s/kvantum-solid/Utterly-Nord-Solid/"
+
+kvantum-light-solid: kvantum-light-solid/*
+	tar -caf Utterly-Nord-Light-Solid-kvantum.zip kvantum-light-solid/* --transform="s/kvantum-light-solid/Utterly-Nord-Light-Solid/"
+
 sddm: sddm/*
 	tar -cJf Utterly-Nord-SDDM.tar.xz sddm/* --transform="s/sddm/Utterly-Nord/"
 
