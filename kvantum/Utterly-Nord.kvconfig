@@ -1,6 +1,6 @@
 [%General]
 author=Himprakash Deka
-comment=A dark and modern theme for Kvantum. 
+comment=A dark nordic Kvantum theme with transparency, blur and round borders for UI elements
 x11drag=all
 alt_mnemonic=true
 left_tabs=true
@@ -69,31 +69,31 @@ contrast=1.00
 dialog_button_layout=0
 drag_from_buttons=true
 intensity=1.00
-menu_blur_radius=2
+menu_blur_radius=14
 saturation=1.00
 shadowless_popup=false
-tooltip_blur_radius=2
+tooltip_blur_radius=14
 
 [GeneralColors]
-window.color=#2E3440
-base.color=#2E3440
-alt.base.color=#2E3440
-button.color=#4C566A
-light.color=#ECEFF4
-mid.light.color=#ECEFF4
-dark.color=#2E3440
-mid.color=#2E3440
-highlight.color=#5E81AC
-inactive.highlight.color=#81A1C1
-text.color=#ECEFF4
-window.text.color=#ECEFF4
-button.text.color=#ECEFF4
-disabled.text.color=#D8DEE9
-tooltip.text.color=#ECEFF4
-highlight.text.color=#ECEFF4
-link.color=#81A1C1
-link.visited.color=#8FBCBB
-progress.indicator.text.color=#ECEFF4
+window.color=#2e3440
+base.color=#2e3440
+alt.base.color=#2e3440
+button.color=#4c566a
+light.color=#eceff4
+mid.light.color=#eceff4
+dark.color=#2e3440
+mid.color=#2e3440
+highlight.color=#5e81ac
+inactive.highlight.color=#5e81ac
+text.color=#eceff4
+window.text.color=#eceff4
+button.text.color=#eceff4
+disabled.text.color=#d8dee9
+tooltip.text.color=#eceff4
+highlight.text.color=#eceff4
+link.color=#81a1c1
+link.visited.color=#8fbcbb
+progress.indicator.text.color=#eceff4
 
 [Hacks]
 transparent_ktitle_label=true
@@ -131,10 +131,10 @@ frame.right=3
 interior=true
 interior.element=button
 indicator.size=8
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
-text.press.color=#D8DEE9
-text.toggle.color=#D8DEE9
+text.normal.color=#eceff4
+text.focus.color=#eceff4
+text.press.color=#eceff4
+text.toggle.color=#eceff4
 text.shadow=0
 text.margin=1
 text.iconspacing=4
@@ -158,14 +158,11 @@ frame.top=1
 frame.bottom=1
 frame.left=1
 frame.right=1
-text.normal.color=#ECEFF4
 
 [DockTitle]
 inherits=PanelButtonCommand
 frame=false
 interior=false
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 text.bold=false
 
 [IndicatorSpinBox]
@@ -175,21 +172,16 @@ interior=true
 frame.left=1
 indicator.element=spin
 indicator.size=10
-text.normal.color=#ECEFF4
 
 [RadioButton]
 inherits=PanelButtonCommand
 frame=false
 interior.element=radio
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 
 [CheckBox]
 inherits=PanelButtonCommand
 frame=false
 interior.element=checkbox
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 
 [Focus]
 inherits=PanelButtonCommand
@@ -232,9 +224,6 @@ indicator.size=8
 
 [ToolboxTab]
 inherits=PanelButtonCommand
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
-text.press.color=#D8DEE9
 
 [Tab]
 inherits=PanelButtonCommand
@@ -249,18 +238,23 @@ frame.top=4
 frame.bottom=4
 frame.left=4
 frame.right=4
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
-text.toggle.color=#ECEFF4
 
 [TabFrame]
 inherits=PanelButtonCommand
+frame=true
 frame.element=tabframe
 interior.element=tabframe
-frame.top=4
-frame.bottom=4
-frame.left=4
-frame.right=4
+text.margin.top=1
+text.margin.bottom=1
+text.margin.left=1
+text.margin.right=1
+frame.top=14
+frame.bottom=14
+frame.left=14
+frame.right=14
+min_width=+0.3font
+min_height=+0.3font
+frame.expansion=2.7font
 
 [TreeExpander]
 inherits=PanelButtonCommand
@@ -276,10 +270,6 @@ frame.bottom=1
 frame.left=1
 frame.right=1
 text.bold=false
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
-text.press.color=#D8DEE9
-text.toggle.color=#D8DEE9
 frame.expansion=2.7font
 
 [SizeGrip]
@@ -293,8 +283,6 @@ text.margin=0
 frame=true
 interior.element=_menubar
 frame.element=_menubar
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 frame.left=0
 frame.right=0
 frame.top=0
@@ -320,10 +308,6 @@ inherits=PanelButtonCommand
 frame.element=progress
 interior.element=progress
 text.margin=0
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
-text.press.color=#D8DEE9
-text.toggle.color=#D8DEE9
 text.bold=false
 frame=true
 frame.expansion=48
@@ -348,10 +332,6 @@ text.margin.top=2
 text.margin.bottom=2
 text.margin.left=4
 text.margin.right=4
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
-text.press.color=#D8DEE9
-text.toggle.color=#D8DEE9
 min_width=+0.3font
 min_height=+0.3font
 frame.expansion=2.7font
@@ -387,8 +367,6 @@ frame=true
 frame.element=menuitem
 interior.element=menuitem
 indicator.element=menuitem
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 text.margin.top=1
 text.margin.bottom=1
 text.margin.left=4
@@ -406,7 +384,6 @@ frame.expansion=2.7font
 inherits=PanelButtonCommand
 frame.element=_menubar
 interior.element=_menubar
-text.normal.color=#ECEFF4
 frame.bottom=0
 frame.expansion=2.7font
 
@@ -423,8 +400,6 @@ text.margin.left=4
 text.margin.right=4
 text.margin.top=0
 text.margin.bottom=0
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 frame.expansion=2.7font
 
 [TitleBar]
@@ -437,8 +412,6 @@ text.margin.right=2
 interior.element=titlebar
 indicator.size=16
 indicator.element=mdi
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 text.bold=true
 text.italic=false
 frame.expansion=2.7font
@@ -447,20 +420,25 @@ frame.expansion=2.7font
 inherits=PanelButtonCommand
 interior.element=combo
 frame.element=combo
-text.press.color=#D8DEE9
 indicator.element=carrow
 frame.expansion=3.4font
 
 [Menu]
 inherits=PanelButtonCommand
-frame.top=1
-frame.bottom=1
-frame.left=1
-frame.right=1
+frame=true
 frame.element=menu
 interior.element=menu
-text.normal.color=#ECEFF4
-text.shadow=false
+indicator.element=menu
+text.margin.top=1
+text.margin.bottom=1
+text.margin.left=4
+text.margin.right=4
+frame.top=14
+frame.bottom=14
+frame.left=14
+frame.right=14
+min_width=+0.3font
+min_height=+0.3font
 frame.expansion=2.7font
 
 [GroupBox]
@@ -468,8 +446,6 @@ inherits=GenericFrame
 frame=true
 text.shadow=0
 text.margin=0
-text.normal.color=#ECEFF4
-text.focus.color=#ECEFF4
 text.bold=true
 frame.expansion=2.7font
 
@@ -486,15 +462,20 @@ frame.expansion=2.7font
 
 [ToolTip]
 inherits=GenericFrame
-frame.top=3
-frame.bottom=3
-frame.left=3
-frame.right=3
+frame=true
 interior=true
-text.shadow=0
-text.margin=0
-interior.element=tooltip
 frame.element=tooltip
+interior.element=tooltip
+text.margin.top=1
+text.margin.bottom=1
+text.margin.left=1
+text.margin.right=1
+frame.top=14
+frame.bottom=14
+frame.left=14
+frame.right=14
+min_width=+0.3font
+min_height=+0.3font
 frame.expansion=2.7font
 
 [StatusBar]
