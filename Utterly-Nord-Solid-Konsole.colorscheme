@@ -1,20 +1,20 @@
 [Background]
-Color=236,239,244
+Color=46,52,64
 
 [BackgroundFaint]
-Color=236,239,244
+Color=46,52,64
 
 [BackgroundIntense]
-Color=236,239,244
+Color=46,52,64
 
 [Color0]
-Color=67,76,94
+Color=76,86,106
 
 [Color0Faint]
 Color=76,86,106
 
 [Color0Intense]
-Color=67,76,94
+Color=76,86,106
 
 [Color1]
 Color=191,97,106
@@ -80,21 +80,21 @@ Color=216,222,233
 Color=216,222,233
 
 [Foreground]
-Color=46,52,64
+Color=236,239,244
 
 [ForegroundFaint]
-Color=59,66,82
+Color=216,222,233
 
 [ForegroundIntense]
-Color=46,52,64
+Color=236,239,244
 
 [General]
 Anchor=0.5,0.5
 Blur=true
 ColorRandomization=false
-Description=Utterly-Nord-Light
+Description=Utterly-Nord-Solid
 FillStyle=Tile
-Opacity=0.6
+Opacity=1
 Wallpaper=
 WallpaperFlipType=NoFlip
 WallpaperOpacity=1
