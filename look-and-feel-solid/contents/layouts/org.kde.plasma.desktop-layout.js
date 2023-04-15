@@ -35,7 +35,7 @@ var downloads = dock.addWidget("org.kde.plasma.folder")
 downloads.currentConfigGroup = ["General"]
 downloads.writeConfig("labelMode","3")
 downloads.writeConfig("labelText","Downloads")
-downloads.writeConfig("url","file:///home/hide/Downloads")
+downloads.writeConfig("url",`${userDataPath("downloads")}`)
 
 dock.addWidget("org.kde.plasma.trash")
 
