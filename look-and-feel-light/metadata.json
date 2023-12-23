@@ -1,0 +1,23 @@
+{
+    "KPackageStructure": "Plasma/LookAndFeel",
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "himprakashd@gmail.com",
+                "Name": "Himprakash Deka"
+            }
+        ],
+        "Category": "Plasma Look And Feel",
+        "Description": "A global theme for KDE Plasma 5 in Light Nordic colors with transparency, blur and rounded corners for UI elements",
+        "EnabledByDefault": true,
+        "Id": "Utterly-Nord-Light",
+        "License": "GPL-2.0+",
+        "Name": "Utterly Nord Light",
+        "ServiceTypes": [
+            "Plasma/LookAndFeel"
+        ],
+        "Version": "2.1",
+        "Website": "www.himdek.com/Utterly-Nord-Plasma"
+    },
+    "X-KPackage-Dependencies": "kns://aurorae.knsrc/api.kde-look.org/1999027,kns://colorschemes.knsrc/api.kde-look.org/1917079,kns://icons.knsrc/api.kde-look.org/1359276,kns://kwineffect.knsrc/api.kde-look.org/1270407,kns://plasma-themes.knsrc/api.kde-look.org/1901768,kns://plasmoids.knsrc/api.kde-look.org/1819888,kns://plasmoids.knsrc/api.kde-look.org/1897990,kns://plasmoids.knsrc/api.kde-look.org/998895,kns://plasmoids.knsrc/api.kde-look.org/1906579,kns://plasmoids.knsrc/api.kde-look.org/1274218,kns://sddmtheme.knsrc/api.kde-look.org/1909606,kns://wallpaper.knsrc/api.kde-look.org/1904144,kns://xcursor.knsrc/api.kde-look.org/1662218"
+}

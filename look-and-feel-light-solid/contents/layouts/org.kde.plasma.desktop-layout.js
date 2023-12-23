@@ -2,30 +2,41 @@ var panel = new Panel
 var panelScreen = panel.screen
 
 panel.location = "top"
+panel.hiding = "alwaysvisible"
 panel.height = 2 * Math.floor(gridUnit * 13 / 18)
-panel.width = screenGeometry(panelScreen).width
+panel.lengthMode = "fill"
+panel.alignment = "center"
+//panel.opacity = "adaptive"
+panel.floating = true
+panel.offset = 0
 
-panel.addWidget("org.kde.plasma.simplekickoff")
+var launcher = panel.addWidget("org.kde.plasma.simplekickoff")
+launcher.currentConfigGroup = new Array("Shortcuts");
+launcher.writeConfig("global","Alt+F1");
+
 panel.addWidget("org.kde.plasma.marginsseparator")
-panel.addWidget("org.kde.windowbuttons")
-panel.addWidget("org.kde.plasma.marginsseparator")
-panel.addWidget("org.kde.windowtitle")
-panel.addWidget("org.kde.plasma.marginsseparator")
-panel.addWidget("org.kde.plasma.appmenu")
+//panel.addWidget("org.kde.windowbuttons")
+//panel.addWidget("org.kde.plasma.marginsseparator")
+//panel.addWidget("org.kde.windowtitle")
+//panel.addWidget("org.kde.plasma.marginsseparator")
+//panel.addWidget("org.kde.plasma.appmenu")
 panel.addWidget("org.kde.plasma.panelspacer")
 panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.plasma.digitalclock")
 panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.plasma.panelspacer")
-panel.addWidget("org.kde.netspeedWidget")
+//panel.addWidget("org.kde.netspeedWidget")
 panel.addWidget("org.kde.plasma.systemtray")
 
 var dock = new Panel
+
 dock.location = "bottom"
+dock.hiding = "dodgewindows"
 dock.height = 2 * Math.floor(gridUnit * 3 / 2)
-dock.hiding = "autohide"
-dock.minimumLength = 2 * Math.floor(gridUnit * 4)
+dock.lengthMode = "fit"
 dock.alignment = "center"
+//dock.opacity = "adaptive"
+dock.floating = true
 dock.offset = 0
 
 dock.addWidget("org.kde.plasma.betterkickerdash")

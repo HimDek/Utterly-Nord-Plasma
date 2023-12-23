@@ -1,0 +1,13 @@
+{
+    "KPlugin": {
+        "Authors": [
+            {
+                "Email": "himprakashd@gmail.com",
+                "Name": "Himprakash Deka"
+            }
+        ],
+        "Id": "Utterly-Nord",
+        "License": "GPL-2.0+",
+        "Name": "Utterly-Nord"
+    }
+}
