@@ -3,7 +3,7 @@
  <img height="200px" src="assets/20220916_214556_Utterly-Nord.png" align="center"/>
  <h1 align="center">Utterly Nord Plasma Global Theme</h1>
  </a>
- <p align="center">A Nordic Global theme for Plasma 5</p>
+ <p align="center">A Nordic Global theme for Plasma</p>
 </p>
 
 <p class="buttons" align="center">
