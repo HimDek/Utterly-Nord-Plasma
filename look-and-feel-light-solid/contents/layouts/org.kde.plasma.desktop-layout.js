@@ -15,8 +15,8 @@ launcher.currentConfigGroup = new Array("Shortcuts");
 launcher.writeConfig("global","Alt+F1");
 
 panel.addWidget("org.kde.plasma.marginsseparator")
-//panel.addWidget("org.kde.windowbuttons")
-//panel.addWidget("org.kde.plasma.marginsseparator")
+panel.addWidget("org.kde.windowbuttons")
+panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.windowtitle")
 panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.plasma.appmenu")
