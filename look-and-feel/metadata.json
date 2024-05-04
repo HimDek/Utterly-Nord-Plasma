@@ -16,7 +16,7 @@
         "ServiceTypes": [
             "Plasma/LookAndFeel"
         ],
-        "Version": "3.0",
+        "Version": "3.2",
         "Website": "www.himdek.com/Utterly-Nord-Plasma"
     },
     "X-KPackage-Dependencies": [
