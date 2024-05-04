@@ -25,7 +25,7 @@ panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.plasma.digitalclock")
 panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.plasma.panelspacer")
-//panel.addWidget("org.kde.netspeedWidget")
+panel.addWidget("org.kde.netspeedWidget")
 panel.addWidget("org.kde.plasma.systemtray")
 
 var dock = new Panel
