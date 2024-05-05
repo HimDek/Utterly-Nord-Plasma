@@ -7,28 +7,28 @@
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
 import QtQuick.Controls 2.15 as QQC2
-import QtGraphicalEffects 1.15
+import Qt5Compat.GraphicalEffects
 
-import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 3.0 as PlasmaComponents3
-import org.kde.plasma.extras 2.0 as PlasmaExtras
+import org.kde.plasma.plasma5support 2.0 as P5Support
+import org.kde.kirigami 2.20 as Kirigami
 
-import "components"
-import "components/animation"
+import org.kde.breeze.components
 
 // TODO: Once SDDM 0.19 is released and we are setting the font size using the
 // SDDM KCM's syncing feature, remove the `config.fontSize` overrides here and
 // the fontSize properties in various components, because the theme's default
 // font size will be correctly propagated to the login screen
 
-PlasmaCore.ColorScope {
+Item {
     id: root
 
     // If we're using software rendering, draw outlines instead of shadows
     // See https://bugs.kde.org/show_bug.cgi?id=398317
     readonly property bool softwareRendering: GraphicsInfo.api === GraphicsInfo.Software
 
-    colorGroup: PlasmaCore.Theme.ComplementaryColorGroup
+    Kirigami.Theme.colorSet: Kirigami.Theme.Complementary
+    Kirigami.Theme.inherit: false
 
     width: 1600
     height: 900
@@ -38,7 +38,7 @@ PlasmaCore.ColorScope {
     LayoutMirroring.enabled: Qt.application.layoutDirection === Qt.RightToLeft
     LayoutMirroring.childrenInherit: true
 
-    PlasmaCore.DataSource {
+    P5Support.DataSource {
         id: keystateSource
         engine: "keystate"
         connectedSources: "Caps Lock"
@@ -91,7 +91,7 @@ PlasmaCore.ColorScope {
             }
         }
 
-        Keys.onPressed: {
+        Keys.onPressed: event => {
             uiVisible = true;
             event.accepted = false;
         }
@@ -103,6 +103,7 @@ PlasmaCore.ColorScope {
             interval: 60000
             onTriggered: {
                 if (!loginScreenRoot.blockUI) {
+                    userListComponent.mainPasswordBox.showPassword = false;
                     loginScreenRoot.uiVisible = false;
                 }
             }
@@ -122,15 +123,13 @@ PlasmaCore.ColorScope {
             anchors.fill: clock
             source: clock
             visible: !softwareRendering
-            horizontalOffset: 1
-            verticalOffset: 1
             radius: 6
             samples: 14
             spread: 0.3
             color : "black" // shadows should always be black
             Behavior on opacity {
                 OpacityAnimator {
-                    duration: PlasmaCore.Units.veryLongDuration * 2
+                    duration: Kirigami.Units.veryLongDuration * 2
                     easing.type: Easing.InOutQuad
                 }
             }
@@ -151,7 +150,7 @@ PlasmaCore.ColorScope {
                 left: parent.left
                 right: parent.right
             }
-            height: root.height + PlasmaCore.Units.gridUnit * 3
+            height: root.height + Kirigami.Units.gridUnit * 3
 
             // If true (depends on the style and environment variables), hover events are always accepted
             // and propagation stopped. This means the parent MouseArea won't get them and the UI won't be shown.
@@ -231,7 +230,7 @@ PlasmaCore.ColorScope {
                         enabled: sddm.canPowerOff
                     },
                     ActionButton {
-                        iconSource: "system-user-prompt"
+                        iconSource: "system-switch-user"
                         text: i18ndc("plasma_lookandfeel_org.kde.lookandfeel", "For switching to a username and password prompt", "Other…")
                         fontSize: parseInt(config.fontSize) + 1
                         onClicked: mainStack.push(userPromptComponent)
@@ -247,23 +246,23 @@ PlasmaCore.ColorScope {
 
             Behavior on opacity {
                 OpacityAnimator {
-                    duration: PlasmaCore.Units.longDuration
+                    duration: Kirigami.Units.longDuration
                 }
             }
 
-            readonly property real zoomFactor: 3
+            readonly property real zoomFactor: 1.5
 
             popEnter: Transition {
                 ScaleAnimator {
                     from: mainStack.zoomFactor
                     to: 1
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
                 OpacityAnimator {
                     from: 0
                     to: 1
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
             }
@@ -271,29 +270,29 @@ PlasmaCore.ColorScope {
             popExit: Transition {
                 ScaleAnimator {
                     from: 1
-                    to: 0
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    to: 1 / mainStack.zoomFactor
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
                 OpacityAnimator {
                     from: 1
                     to: 0
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
             }
 
             pushEnter: Transition {
                 ScaleAnimator {
-                    from: 0
+                    from: 1 / mainStack.zoomFactor
                     to: 1
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
                 OpacityAnimator {
                     from: 0
                     to: 1
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
             }
@@ -302,133 +301,27 @@ PlasmaCore.ColorScope {
                 ScaleAnimator {
                     from: 1
                     to: mainStack.zoomFactor
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
                 OpacityAnimator {
                     from: 1
                     to: 0
-                    duration: PlasmaCore.Units.longDuration * (mainStack.zoomFactor / 2)
+                    duration: Kirigami.Units.veryLongDuration
                     easing.type: Easing.OutCubic
                 }
             }
         }
 
-        Loader {
+        VirtualKeyboardLoader {
             id: inputPanel
-            state: "hidden"
-            property bool keyboardActive: item ? item.active : false
-            onKeyboardActiveChanged: {
-                if (keyboardActive) {
-                    state = "visible"
-                    // Otherwise the password field loses focus and virtual keyboard
-                    // keystrokes get eaten
-                    userListComponent.mainPasswordBox.forceActiveFocus();
-                } else {
-                    state = "hidden";
-                }
-            }
 
-            source: Qt.platform.pluginName.includes("wayland") ? "components/VirtualKeyboard_wayland.qml" : "components/VirtualKeyboard.qml"
-            anchors {
-                left: parent.left
-                right: parent.right
-            }
+            z: 1
 
-            function showHide() {
-                state = state === "hidden" ? "visible" : "hidden";
-            }
-
-            states: [
-                State {
-                    name: "visible"
-                    PropertyChanges {
-                        target: mainStack
-                        y: Math.min(0, root.height - inputPanel.height - userListComponent.visibleBoundary)
-                    }
-                    PropertyChanges {
-                        target: inputPanel
-                        y: root.height - inputPanel.height
-                        opacity: 1
-                    }
-                },
-                State {
-                    name: "hidden"
-                    PropertyChanges {
-                        target: mainStack
-                        y: 0
-                    }
-                    PropertyChanges {
-                        target: inputPanel
-                        y: root.height - root.height/4
-                        opacity: 0
-                    }
-                }
-            ]
-            transitions: [
-                Transition {
-                    from: "hidden"
-                    to: "visible"
-                    SequentialAnimation {
-                        ScriptAction {
-                            script: {
-                                inputPanel.item.activated = true;
-                                Qt.inputMethod.show();
-                            }
-                        }
-                        ParallelAnimation {
-                            NumberAnimation {
-                                target: mainStack
-                                property: "y"
-                                duration: PlasmaCore.Units.longDuration
-                                easing.type: Easing.InOutQuad
-                            }
-                            NumberAnimation {
-                                target: inputPanel
-                                property: "y"
-                                duration: PlasmaCore.Units.longDuration
-                                easing.type: Easing.OutQuad
-                            }
-                            OpacityAnimator {
-                                target: inputPanel
-                                duration: PlasmaCore.Units.longDuration
-                                easing.type: Easing.OutQuad
-                            }
-                        }
-                    }
-                },
-                Transition {
-                    from: "visible"
-                    to: "hidden"
-                    SequentialAnimation {
-                        ParallelAnimation {
-                            NumberAnimation {
-                                target: mainStack
-                                property: "y"
-                                duration: PlasmaCore.Units.longDuration
-                                easing.type: Easing.InOutQuad
-                            }
-                            NumberAnimation {
-                                target: inputPanel
-                                property: "y"
-                                duration: PlasmaCore.Units.longDuration
-                                easing.type: Easing.InQuad
-                            }
-                            OpacityAnimator {
-                                target: inputPanel
-                                duration: PlasmaCore.Units.longDuration
-                                easing.type: Easing.InQuad
-                            }
-                        }
-                        ScriptAction {
-                            script: {
-                                inputPanel.item.activated = false;
-                                Qt.inputMethod.hide();
-                            }
-                        }
-                    }
-                }
-            ]
+            screenRoot: root
+            mainStack: mainStack
+            mainBlock: userListComponent
+            passwordField: userListComponent.mainPasswordBox
         }
 
         Component {
@@ -443,11 +336,12 @@ PlasmaCore.ColorScope {
                 userListModel: ListModel {
                     ListElement {
                         name: ""
-                        iconSource: ""
+                        icon: ""
                     }
                     Component.onCompleted: {
                         // as we can't bind inside ListElement
                         setProperty(0, "name", i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Type in Username and Password"));
+                        setProperty(0, "icon", Qt.resolvedUrl("faces/.face.icon"))
                     }
                 }
 
@@ -480,7 +374,7 @@ PlasmaCore.ColorScope {
                         enabled: sddm.canPowerOff
                     },
                     ActionButton {
-                        iconSource: "system-user-list"
+                        iconSource: "system-users"
                         text: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "List Users")
                         fontSize: parseInt(config.fontSize) + 1
                         onClicked: mainStack.pop()
@@ -489,73 +383,54 @@ PlasmaCore.ColorScope {
             }
         }
 
-        DropShadow {
-            id: logoShadow
-            anchors.fill: logo
-            source: logo
-            visible: !softwareRendering && config.showlogo === "shown"
-            horizontalOffset: 1
-            verticalOffset: 1
-            radius: 6
-            samples: 14
-            spread: 0.3
-            color : "black" // shadows should always be black
-            opacity: loginScreenRoot.uiVisible ? 0 : 1
-            Behavior on opacity {
-                //OpacityAnimator when starting from 0 is buggy (it shows one frame with opacity 1)"
-                NumberAnimation {
-                    duration: PlasmaCore.Units.longDuration
-                    easing.type: Easing.InOutQuad
-                }
-            }
-        }
-
-        Image {
-            id: logo
-            visible: config.showlogo === "shown"
-            source: config.logo
-            anchors.horizontalCenter: parent.horizontalCenter
-            anchors.bottom: footer.top
-            anchors.bottomMargin: PlasmaCore.Units.largeSpacing
-            asynchronous: true
-            sourceSize.height: height
-            opacity: loginScreenRoot.uiVisible ? 0 : 1
-            fillMode: Image.PreserveAspectFit
-            height: Math.round(PlasmaCore.Units.gridUnit * 3.5)
-            Behavior on opacity {
-                // OpacityAnimator when starting from 0 is buggy (it shows one frame with opacity 1)"
-                NumberAnimation {
-                    duration: PlasmaCore.Units.longDuration
-                    easing.type: Easing.InOutQuad
-                }
-            }
-        }
-
-        //Footer
+        // Note: Containment masks stretch clickable area of their buttons to
+        // the screen edges, essentially making them adhere to Fitts's law.
+        // Due to virtual keyboard button having an icon, buttons may have
+        // different heights, so fillHeight is required.
+        //
+        // Note for contributors: Keep this in sync with LockScreenUi.qml footer.
         RowLayout {
             id: footer
             anchors {
                 bottom: parent.bottom
                 left: parent.left
                 right: parent.right
-                margins: PlasmaCore.Units.smallSpacing
+                margins: Kirigami.Units.smallSpacing
             }
+            spacing: Kirigami.Units.smallSpacing
 
             Behavior on opacity {
                 OpacityAnimator {
-                    duration: PlasmaCore.Units.longDuration
+                    duration: Kirigami.Units.longDuration
                 }
             }
 
             PlasmaComponents3.ToolButton {
+                id: virtualKeyboardButton
+
                 text: i18ndc("plasma_lookandfeel_org.kde.lookandfeel", "Button to show/hide virtual keyboard", "Virtual Keyboard")
                 font.pointSize: config.fontSize
                 icon.name: inputPanel.keyboardActive ? "input-keyboard-virtual-on" : "input-keyboard-virtual-off"
-                onClicked: inputPanel.showHide()
+                onClicked: {
+                    // Otherwise the password field loses focus and virtual keyboard
+                    // keystrokes get eaten
+                    userListComponent.mainPasswordBox.forceActiveFocus();
+                    inputPanel.showHide()
+                }
                 visible: inputPanel.status === Loader.Ready
+
+                Layout.fillHeight: true
+                containmentMask: Item {
+                    parent: virtualKeyboardButton
+                    anchors.fill: parent
+                    anchors.leftMargin: -footer.anchors.margins
+                    anchors.bottomMargin: -footer.anchors.margins
+                }
             }
 
             KeyboardButton {
+                id: keyboardButton
+
                 font.pointSize: config.fontSize
 
                 onKeyboardLayoutChanged: {
@@ -563,16 +438,34 @@ PlasmaCore.ColorScope {
                     // keystrokes get eaten
                     userListComponent.mainPasswordBox.forceActiveFocus();
                 }
+
+                Layout.fillHeight: true
+                containmentMask: Item {
+                    parent: keyboardButton
+                    anchors.fill: parent
+                    anchors.leftMargin: virtualKeyboardButton.visible ? 0 : -footer.anchors.margins
+                    anchors.bottomMargin: -footer.anchors.margins
+                }
             }
 
             SessionButton {
                 id: sessionButton
+
                 font.pointSize: config.fontSize
 
                 onSessionChanged: {
                     // Otherwise the password field loses focus and virtual keyboard
                     // keystrokes get eaten
                     userListComponent.mainPasswordBox.forceActiveFocus();
+                }
+
+                Layout.fillHeight: true
+                containmentMask: Item {
+                    parent: sessionButton
+                    anchors.fill: parent
+                    anchors.leftMargin: virtualKeyboardButton.visible || keyboardButton.visible
+                        ? 0 : -footer.anchors.margins
+                    anchors.bottomMargin: -footer.anchors.margins
                 }
             }
 

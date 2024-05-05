@@ -7,8 +7,8 @@
 
 import QtQuick 2.15
 
-import org.kde.plasma.core 2.0 as PlasmaCore
 import org.kde.plasma.components 3.0 as PlasmaComponents
+import org.kde.kirigami 2.20 as Kirigami
 
 PlasmaComponents.ToolButton {
     id: root
@@ -16,8 +16,8 @@ PlasmaComponents.ToolButton {
     property int currentIndex: keyboard.currentLayout
     onCurrentIndexChanged: keyboard.currentLayout = currentIndex
 
-    text: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Keyboard Layout: %1", keyboard.layouts[currentIndex].shortName)
-    visible: menu.count > 1 && !Qt.platform.pluginName.includes("wayland") // This menu needs porting to wayland https://github.com/sddm/sddm/issues/1528
+    text: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Keyboard Layout: %1", keyboard.layouts[currentIndex].longName)
+    visible: keyboard.layouts.length > 1
 
     checkable: true
     checked: menu.opened
@@ -33,18 +33,26 @@ PlasmaComponents.ToolButton {
 
     PlasmaComponents.Menu {
         id: menu
-        PlasmaCore.ColorScope.colorGroup: PlasmaCore.Theme.NormalColorGroup
-        PlasmaCore.ColorScope.inherit: false
+        Kirigami.Theme.colorSet: Kirigami.Theme.Window
+        Kirigami.Theme.inherit: false
+
+        onAboutToShow: {
+            if (instantiator.model === null) {
+                let layouts = keyboard.layouts;
+                layouts.sort((a, b) => a.longName.localeCompare(b.longName));
+                instantiator.model = layouts;
+            }
+        }
 
         Instantiator {
             id: instantiator
-            model: keyboard.layouts
-            onObjectAdded: menu.insertItem(index, object)
-            onObjectRemoved: menu.removeItem(object)
+            model: null
+            onObjectAdded: (index, object) => menu.insertItem(index, object)
+            onObjectRemoved: (index, object) => menu.removeItem(object)
             delegate: PlasmaComponents.MenuItem {
                 text: modelData.longName
                 onTriggered: {
-                    keyboard.currentLayout = model.index
+                    keyboard.currentLayout = keyboard.layouts.indexOf(modelData)
                     root.keyboardLayoutChanged()
                 }
             }
