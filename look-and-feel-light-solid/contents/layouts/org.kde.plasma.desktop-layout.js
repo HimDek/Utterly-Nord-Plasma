@@ -15,17 +15,17 @@ launcher.currentConfigGroup = new Array("Shortcuts");
 launcher.writeConfig("global","Alt+F1");
 
 panel.addWidget("org.kde.plasma.marginsseparator")
-//panel.addWidget("org.kde.windowbuttons")
-//panel.addWidget("org.kde.plasma.marginsseparator")
-//panel.addWidget("org.kde.windowtitle")
-//panel.addWidget("org.kde.plasma.marginsseparator")
-//panel.addWidget("org.kde.plasma.appmenu")
+panel.addWidget("org.kde.windowbuttons")
+panel.addWidget("org.kde.plasma.marginsseparator")
+panel.addWidget("org.kde.windowtitle")
+panel.addWidget("org.kde.plasma.marginsseparator")
+panel.addWidget("org.kde.plasma.appmenu")
 panel.addWidget("org.kde.plasma.panelspacer")
 panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.plasma.digitalclock")
 panel.addWidget("org.kde.plasma.marginsseparator")
 panel.addWidget("org.kde.plasma.panelspacer")
-//panel.addWidget("org.kde.netspeedWidget")
+panel.addWidget("org.kde.netspeedWidget")
 panel.addWidget("org.kde.plasma.systemtray")
 
 var dock = new Panel
@@ -39,7 +39,7 @@ dock.alignment = "center"
 dock.floating = true
 dock.offset = 0
 
-dock.addWidget("org.kde.plasma.betterkickerdash")
+dock.addWidget("com.himdek.kde.plasma.overview")
 dock.addWidget("org.kde.plasma.icontasks")
 
 var downloads = dock.addWidget("org.kde.plasma.folder")

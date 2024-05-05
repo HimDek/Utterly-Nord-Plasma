@@ -105,9 +105,9 @@ ForegroundVisited=143,188,187
 [General]
 ColorScheme=Utterly-Nord-Light
 Name=Utterly-Nord-Light
-TintFactor=0.09
-accentActiveTitlebar=true
-accentInactiveTitlebar=true
+TintFactor=0
+accentActiveTitlebar=false
+accentInactiveTitlebar=false
 shadeSortColumn=true
 
 [KDE]

@@ -3,12 +3,12 @@
     "KPlugin": {
         "Authors": [
             {
-                "Email": "himprakashd@gmail.com",
+                "Email": "info@himdek.com",
                 "Name": "Himprakash Deka"
             }
         ],
-        "Category": "Plasma Look And Feel",
-        "Description": "A Solid global theme for KDE Plasma 5 in Light Nordic colors with rounded corners for UI elements",
+        "Category": "Global Themes (Plasma 6)",
+        "Description": "A Solid global theme for KDE Plasma 6 in Light Nordic colors with rounded corners for UI elements",
         "EnabledByDefault": true,
         "Id": "Utterly-Nord-Light-Solid",
         "License": "GPL-2.0+",
@@ -16,8 +16,21 @@
         "ServiceTypes": [
             "Plasma/LookAndFeel"
         ],
-        "Version": "2.1",
+        "Version": "3.2",
         "Website": "www.himdek.com/Utterly-Nord-Plasma"
     },
-    "X-KPackage-Dependencies": "kns://aurorae.knsrc/api.kde-look.org/2011610,kns://colorschemes.knsrc/api.kde-look.org/1917079,kns://icons.knsrc/api.kde-look.org/1359276,kns://kwineffect.knsrc/api.kde-look.org/1270407,kns://plasma-themes.knsrc/api.kde-look.org/2011605,kns://plasmoids.knsrc/api.kde-look.org/1819888,kns://plasmoids.knsrc/api.kde-look.org/1897990,kns://plasmoids.knsrc/api.kde-look.org/998895,kns://plasmoids.knsrc/api.kde-look.org/1906579,kns://plasmoids.knsrc/api.kde-look.org/1274218,kns://sddmtheme.knsrc/api.kde-look.org/1909606,kns://wallpaper.knsrc/api.kde-look.org/1904144,kns://xcursor.knsrc/api.kde-look.org/1662218"
+    "X-KPackage-Dependencies": [
+        "kns://window-decorations.knsrc/api.kde-look.org/2132515",
+        "kns://colorschemes.knsrc/api.kde-look.org/1917079",
+        "kns://icons.knsrc/api.kde-look.org/1359276",
+        "kns://plasma-themes.knsrc/api.kde-look.org/2011605",
+        "kns://plasmoids.knsrc/api.kde-look.org/2115883",
+        "kns://plasmoids.knsrc/api.kde-look.org/2151931",
+        "kns://plasmoids.knsrc/api.kde-look.org/2129423",
+        "kns://plasmoids.knsrc/api.kde-look.org/2136505",
+        "kns://plasmoids.knsrc/api.kde-look.org/2132554",
+        "kns://sddmtheme.knsrc/api.kde-look.org/1909606",
+        "kns://wallpaper.knsrc/api.kde-look.org/1904144",
+        "kns://xcursor.knsrc/api.kde-look.org/1662218"
+    ]
 }

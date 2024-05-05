@@ -1,15 +1,16 @@
 [SddmGreeterTheme]
-Name=Utterly-Nord
-Description=Utterly-Nord SDDM theme
+Name=Utterly-Nord-Plasma-6
+Description=Utterly-Nord SDDM theme for Plasma6
 Author=Himprakash Deka
 License=GPL-2.0+
 Type=sddm-theme
-Version=1.2
+Version=1.0
 Website=https://himdek.com/Utterly-Nord-Plasma
 Screenshot=Preview.png
 MainScript=Main.qml
 ConfigFile=theme.conf
 TranslationsDirectory=translations
-Email=himprakashd@gmail.com
+Email=info@himdek.com
 Theme-Id=Utterly-Nord
 Theme-API=2.0
+QtVersion=6
