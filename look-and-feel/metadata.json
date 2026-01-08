@@ -16,7 +16,7 @@
         "ServiceTypes": [
             "Plasma/LookAndFeel"
         ],
-        "Version": "3.2",
+        "Version": "3.3",
         "Website": "www.himdek.com/Utterly-Nord-Plasma"
     },
     "X-KPackage-Dependencies": [
@@ -29,7 +29,7 @@
         "kns://plasmoids.knsrc/api.kde-look.org/2129423",
         "kns://plasmoids.knsrc/api.kde-look.org/2136505",
         "kns://plasmoids.knsrc/api.kde-look.org/2132554",
-        "kns://sddmtheme.knsrc/api.kde-look.org/1909606",
+        "kns://sddmtheme.knsrc/api.kde-look.org/2340614",
         "kns://wallpaper.knsrc/api.kde-look.org/1904144",
         "kns://xcursor.knsrc/api.kde-look.org/1662218"
     ]
