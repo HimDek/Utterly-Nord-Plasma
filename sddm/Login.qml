@@ -21,7 +21,7 @@ SessionManagementScreen {
     property int visibleBoundary: mapFromItem(loginButton, 0, 0).y
     onHeightChanged: visibleBoundary = mapFromItem(loginButton, 0, 0).y + loginButton.height + Kirigami.Units.smallSpacing
 
-    property int fontSize: parseInt(config.fontSize)
+    property real fontSize: Kirigami.Theme.defaultFont.pointSize
 
     signal loginRequest(string username, string password)
 
@@ -35,6 +35,7 @@ SessionManagementScreen {
         // Don't startLogin() here, because the signal is connected to the
         // Escape key as well, for which it wouldn't make sense to trigger
         // login.
+        passwordBox.clear()
         focusFirstVisibleFormControl();
     }
 
@@ -63,7 +64,7 @@ SessionManagementScreen {
 
         footer.enabled = false
         mainStack.enabled = false
-        userListComponent.userList.opacity = 0.5
+        userListComponent.userList.opacity = 0.75
 
         // This is partly because it looks nicer, but more importantly it
         // works round a Qt bug that can trigger if the app is closed with a
@@ -82,7 +83,7 @@ SessionManagementScreen {
         text: lastUserName
         visible: showUsernamePrompt
         focus: showUsernamePrompt && !lastUserName //if there's a username prompt it gets focus first, otherwise password does
-        placeholderText: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Username")
+        placeholderText: i18nd("plasma-desktop-sddm-theme", "Username")
 
         onAccepted: {
             if (root.loginScreenUiVisible) {
@@ -99,7 +100,7 @@ SessionManagementScreen {
             font.pointSize: fontSize + 1
             Layout.fillWidth: true
 
-            placeholderText: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Password")
+            placeholderText: i18nd("plasma-desktop-sddm-theme", "Password")
             focus: !showUsernamePrompt || lastUserName
 
             // Disable reveal password action because SDDM does not have the breeze icon set loaded
@@ -141,7 +142,7 @@ SessionManagementScreen {
 
         PlasmaComponents3.Button {
             id: loginButton
-            Accessible.name: i18nd("plasma_lookandfeel_org.kde.lookandfeel", "Log In")
+            Accessible.name: i18nd("plasma-desktop-sddm-theme", "Log In")
             Layout.preferredHeight: passwordBox.implicitHeight
             Layout.preferredWidth: text.length === 0 ? loginButton.Layout.preferredHeight : -1
 
